@@ -9,4 +9,3 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(() => caches.match('./jeda-jurnal.html'))));
 });
-
