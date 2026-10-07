@@ -1,4 +1,4 @@
-const CACHE = 'jeda-shell-v1';
+const CACHE = 'jeda-shell-v2';
 const FILES = ['./', './jeda-jurnal.html', './manifest.webmanifest', './icon.svg'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES))));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))));
@@ -9,3 +9,4 @@ self.addEventListener('fetch', event => {
     return response;
   }).catch(() => caches.match('./jeda-jurnal.html'))));
 });
+
